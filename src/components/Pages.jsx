@@ -16,6 +16,7 @@ const Pages = ({page, setPage}) =>{
     const movePageUp = (e) => {
         if(pageId){
             let newPage = parseInt(pageId) + 10
+            setPage(newPage);
             navigate(`/products/${newPage}`)
         }else{
             navigate('/products/20');
@@ -23,7 +24,8 @@ const Pages = ({page, setPage}) =>{
     }
     const movePageDown = (e) => {
         if(pageId){
-            let newPage = parseInt(pageId) - 10
+            let newPage = parseInt(pageId) - 10;
+            setPage(newPage);
             navigate(`/products/${newPage}`)
         } 
     }

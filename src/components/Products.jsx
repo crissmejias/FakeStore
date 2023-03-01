@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react"
 import {Item} from './Item'
 import { Pages } from "./Pages";
+import { useParams } from "react-router-dom";
 const Products = () => {
+    const {pageId} = useParams();
     const [products, setProducts] = useState([]);
     const [page, setPage] = useState('10');
     useEffect(()=> {
         fetch(`https://api.escuelajs.co/api/v1/products?offset=${page}&limit=10`)
         .then(result => result.json())
         .then(result => setProducts(result))
-    },[page])
+    },[page,pageId ])
     return(
         <main className="bg-gray-100 h-full flex flex-col justify-center">
             <h1 className="py-4 text-3xl text-center font-semibold">Products List</h1>
