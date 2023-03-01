@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 const Item = (props) => {
+    const navigate = useNavigate();
     return(
-    <li className="w-1/3 h-1/3 p-4 rounded-md border-2 flex flex-col gap-2 shadow-md shadow-gray-600 cursor-pointer"> 
+    <li onClick={()=>{navigate(`/products/detail/${props.product.id}`, {state:props.product})}} className="w-2/3 md:w-1/3 h-1/3 p-4 rounded-md border-2 flex flex-col gap-2 shadow-md shadow-gray-600 cursor-pointer"> 
         <img className="bg-gray-200 rounded-md" loading="lazy" src={props.product.images[0]} alt="" />
         <div className="flex items-baseline justify-between">
         <h3 className="text-sm">{props.product.title}</h3>

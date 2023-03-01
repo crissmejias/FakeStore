@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Option } from "./Option";
+import { useNavigate } from "react-router-dom";
 const Categories = () => {
     const [categories, setCategories] = useState([]);
     useEffect(()=>{
@@ -7,8 +8,10 @@ const Categories = () => {
         .then(result => result.json())
         .then(result => setCategories(result))
     },[])
+    const navigate = useNavigate();
     return(
-        <div className="bg-gray-200 py-8">
+        <div className="bg-gray-200 py-8 relative">
+        <button className=" bg-orange-400 shadow-gray-600 shadow-md rounded-full w-10 h-10 absolute top-2 left-12 text-2xl" onClick={()=>{navigate(-1)}}><i className="fi fi-rr-arrow-small-left flex justify-center"></i></button>
             <h2 className="text-3xl text-center py-8">Categories</h2>
             <ul className="flex w-11/12 mx-auto  flex-wrap justify-center  items-center gap-8">
             {categories && categories.map(el => <Option key={el.id} category={el}/>)}
