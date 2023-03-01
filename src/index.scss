@@ -1,4 +1,5 @@
 @import "~@flaticon/flaticon-uicons/css/regular/rounded";
+@import "~@flaticon/flaticon-uicons/css/brands/all";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,4 +7,7 @@
   &.page{
   @apply bg-orange-400
   }
+}
+body{
+  @apply bg-gray-100
 }

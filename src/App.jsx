@@ -4,6 +4,7 @@ import {Products} from './components/Products'
 import {Categories} from './components/Categories'
 import { FilteredCategory } from "./components/FilteredCategory"
 import { ProductDetail } from "./components/ProductDetail"
+import { Footer } from "./components/Footer"
 function App() {
   return (
     <>
@@ -16,6 +17,7 @@ function App() {
         <Route path='/categories/:id' element={<FilteredCategory/>}/>
         <Route path='/categories/:id/:categoryPage' element={<FilteredCategory/>}/>
       </Routes>
+      <Footer/>
     </>
     )
 }
