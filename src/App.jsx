@@ -10,8 +10,10 @@ function App() {
       <Header/> 
       <Routes>
         <Route path='/' element={<Products/>}/>
+        <Route path='/products/:pageId' element={<Products/>}/>
         <Route path='/categories' element={<Categories/>}/>
         <Route path='/categories/:id' element={<FilteredCategory/>}/>
+        <Route path='/categories/:id/:categoryPage' element={<FilteredCategory/>}/>
       </Routes>
     </>
     )
