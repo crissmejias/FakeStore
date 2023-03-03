@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react";
 import { Option } from "./Option";
 import { useNavigate } from "react-router-dom";
+import { useCategories } from "../hooks/useCategories";
 const Categories = () => {
-    const [categories, setCategories] = useState([]);
-    useEffect(()=>{
-        fetch('https://api.escuelajs.co/api/v1/categories?offset=0&limit=5')
-        .then(result => result.json())
-        .then(result => setCategories(result))
-    },[])
+   const [categories, setCategories] = useCategories();
     const navigate = useNavigate();
     return(
         <div className="bg-gray-100 relative flex flex-col gap-12 pt-12">
