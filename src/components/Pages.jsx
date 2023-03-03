@@ -30,11 +30,11 @@ const Pages = ({page, setPage}) =>{
         } 
     }
     return(
-        <div className="mx-auto my-10 flex items-center gap-4">
+        <div className="mx-auto text-xl pt-12  flex items-center gap-4">
         {pageId > 10 &&   <button onClick={movePageDown} ><i className="fi fi-rr-angle-circle-left hover:bg-orange-400 hover:text-gray-900 flex rounded-full text-center"></i></button>
 }
            { pages.map(el =>
-           <NavLink to={`/products/${el}0`} key={el} className="page rounded-full text-center border-2 h-6 w-6 text-sm" onClick={handleClick}>{el}</NavLink>
+           <NavLink to={`/products/${el}0`} key={el} className={`page rounded-full text-center border-2 h-6 w-6 text-sm`} onClick={handleClick}>{el}</NavLink>
            )}
          { (pageId < 100 || !pageId) &&   <button onClick={movePageUp} ><i className="fi fi-rr-angle-circle-right hover:bg-orange-400 hover:text-gray-900 flex  items-center rounded-full text-center"></i></button>
 }        
