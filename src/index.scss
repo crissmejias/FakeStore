@@ -11,3 +11,22 @@
 body{
   @apply bg-gray-100
 }
+
+.sidebar{
+  transition: transform 800ms ease-in-out;
+  transform: translateX(150px);
+}
+.sidebar-hide{
+  transition: transform 500ms ease-in-out;
+  transform: translateX(-300px)
+}
+.button-hide{
+  transition: transform 500ms ease-in-out;
+
+  transform: translateX(0px)
+}
+.button{
+  transition: transform 800ms ease-in-out;
+
+  transform: translate(300px)
+}
