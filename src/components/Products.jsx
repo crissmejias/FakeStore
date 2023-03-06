@@ -12,7 +12,7 @@ const Products = () => {
             <h1 className="py-4 text-3xl text-center font-semibold">Products List</h1>
             <ul className="flex flex-col md:flex-row gap-5 flex-wrap justify-center items-center w-full">
             {loading && <div>Loding products...</div>}
-            {/* {(!loading && (products)) && <div>Your product was not found</div>} */}
+            {(!loading && (products.length < 1)) && <h3 className="my-40 text-xl font-semibold">Your product was not found</h3>}
             {products && products.map( el => <Item key={el.id} product={el}/>)}
             </ul>
             <Pages page={page} setPage={setPage}/>

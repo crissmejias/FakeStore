@@ -1,5 +1,6 @@
 import { useContext, useRef, useState } from "react"
 import { FilterContext } from "../context/filters";
+import { useCategories } from "../hooks/useCategories";
 
 const Filters = (props) => {
    const sideBarRef = useRef(null);
@@ -11,9 +12,11 @@ const Filters = (props) => {
     buttonRef.current.classList.toggle('button');
 }
     const {filters, setFilters} = useContext(FilterContext);
+    const [categories] = useCategories()
     const handleSubmit = (e) => {
         e.preventDefault();
-        setFilters({...filters, title:e.target[0].value, price_min: e.target[2].value, price_max: e.target[3].value})
+        setFilters({...filters, title:e.target[0].value,categoryId:e.target[1].value ,price_min: e.target[2].value, price_max: e.target[3].value})
+        handleClick();
     }
     return(
         <>
@@ -22,7 +25,11 @@ const Filters = (props) => {
             <aside  className={`bg-gray-200 w-[300px] absolute  p-5 h-11/12 rounded-br-md`}>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-2 justify-center h-2/3" >
                     <label htmlFor="" className="text-center">Title</label><input type="text" name="title" placeholder="try: Generic, Awesome..." className="rounded-md p-2" />
-                    <label htmlFor="" className="text-center">Category</label><input type="text" name='categories' placeholder="try: Clothes, Electronics..." className="rounded-md p-2"/>
+                    <label htmlFor="" className="text-center">Category</label>
+                    <select defaultValue='default' name="category" className="rounded-md p-2">
+                        <option disabled value="default">Select your category</option>
+                        {categories?.map(category => <option key={category.name} value={category.id}>{category.name}</option>)}
+                    </select>
                     <div className="flex flex-col my-2 gap-4">
                     <h3 htmlFor="" className="text-center">Price</h3>
                     <input type="number" name='price_min' className="rounded-md p-2" placeholder="Min" />
