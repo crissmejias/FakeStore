@@ -7,7 +7,7 @@ const Pages = ({page, setPage}) =>{
     
     const handleClick = (e) => {
         if(e.target.innerText == '1'){
-            return;
+            setPage('')
         }else{
             let newPage = e.target.innerText + 0;
             setPage(newPage)
